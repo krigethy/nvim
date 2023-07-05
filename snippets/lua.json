@@ -1,0 +1,7 @@
+{
+    "require": {
+        "prefix": "test",
+        "body": ["this is a test snippet('${1:module}')"],
+        "description": "TEST SNIPPET"
+    }
+}
