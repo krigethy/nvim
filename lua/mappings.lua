@@ -101,7 +101,9 @@ M.cmp = function()
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<C-CR>'] = cmp.mapping({
+    -- TODO this is for <C-CR>, I need a better solution here
+    -- Have to look into alacritty/tmux config as well
+    ['\n'] = cmp.mapping({
       i = function(_)
         if cmp.visible() then
           cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
