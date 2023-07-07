@@ -14,7 +14,7 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
-map('n', '<Leader>m', vim.diagnostic.open_float)
+-- map('n', '<Leader>TODO', vim.diagnostic.open_float)
 map('n', '[d', vim.diagnostic.goto_prev)
 map('n', ']d', vim.diagnostic.goto_next)
 map('n', '<Leader>q', vim.diagnostic.setloclist)
@@ -101,7 +101,7 @@ M.cmp = function()
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
     ['<C-e>'] = cmp.mapping.abort(),
-    ['<C-Space>'] = cmp.mapping({
+    ['<C-CR>'] = cmp.mapping({
       i = function(_)
         if cmp.visible() then
           cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
