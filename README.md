@@ -24,22 +24,17 @@
 
 ## System Packages
 
-`brew install ripgrep fd make git curl`
+`brew install ripgrep fd make git curl lazygit`
 `npm install -g tree-sitter-cli`
 `command xcode-select --install`
 
 - eslint
   - `npm install -g eslint` or a locally installed version is needed in the working directory
 - Treesitter
-  - `npm install tree-sitter-cli`
+  - `npm install -g tree-sitter-cli`
   - needed for `auto_install = true`
 - Telescope
-  - ripgrep
-    - Linux: `sudo apt install ripgrep`
-    - macOS: `brew install ripgrep`
-  - fd
-    - Linux `sudo apt install fd-find`
-    - macOS: `brew install fd`
+  - `brew install ripgrep fd`
   - telescope-fzf-native.nvim
     - make, GCC/Clang
 - Mason
