@@ -25,3 +25,10 @@ autocmd(
     command = 'setlocal spell'
   }
 )
+
+-- Automatically even out window sizes on resizing Vim
+autocmd(
+  'VimResized', {
+    command = 'wincmd ='
+  }
+)
