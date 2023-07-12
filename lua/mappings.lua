@@ -72,6 +72,8 @@ M.nvimtree = function()
     map('n', 'D', api.fs.remove, opts('Delete'))
     map('n', ']d', api.node.navigate.diagnostics.next, opts('Next Diagnostic'))
     map('n', '[d', api.node.navigate.diagnostics.prev, opts('Prev Diagnostic'))
+    map('n', '<C-s>', api.node.open.horizontal, opts('Open: Horizontal Split'))
+    map('n', '<C-v>', api.node.open.vertical, opts('Open: Vertical Split'))
   end
 end
 
@@ -92,6 +94,15 @@ M.telescope = function()
   -- map('n', '<leader>', builtin.lsp_implementation)
   -- map('n', '<leader>', builtin.lsp_definitions)
   -- map('n', '<leader>', builtin.lsp_type_definitions)
+
+  local actions = require('telescope.actions')
+  return {
+    i = {
+      ['<Esc>'] = actions.close,
+      ['<C-s>'] = actions.select_horizontal,
+      ['<C-v>'] = actions.select_vertical
+    }
+  }
 end
 
 M.cmp = function()

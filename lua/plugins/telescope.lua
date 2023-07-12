@@ -9,10 +9,9 @@ return {
     'nvim-tree/nvim-web-devicons',
   },
   config = function()
-    require('mappings').telescope()
     require('telescope').setup({
       defaults = {
-        mappings = { i = { ['<Esc>'] = require('telescope.actions').close } },
+        mappings = require('mappings').telescope(),
         layout_config = { horizontal = { prompt_position = 'top' } },
         sorting_strategy = 'ascending'
       }
