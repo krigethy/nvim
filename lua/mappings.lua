@@ -14,7 +14,7 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
--- map('n', '<Leader>TODO', vim.diagnostic.open_float)
+map('n', '<Leader>i', vim.diagnostic.open_float)
 map('n', '[d', vim.diagnostic.goto_prev)
 map('n', ']d', vim.diagnostic.goto_next)
 map('n', '<Leader>q', vim.diagnostic.setloclist)
@@ -167,7 +167,7 @@ M.gitsigns = function(bufnr)
     return '<Ignore>'
   end, { buffer = bufnr, expr = true })
 
-  map('n', '<Bslash>p', gs.preview_hunk, opts)
+  map('n', '<Bslash>i', gs.preview_hunk, opts)
   map('n', '<Bslash>b', function() gs.blame_line { full = true } end, opts)
   map('n', '<Bslash>s', gs.stage_hunk, opts)
   map('v', '<Bslash>s', function() gs.stage_hunk { vim.fn.line('.'), vim.fn.line('v') } end, opts)
