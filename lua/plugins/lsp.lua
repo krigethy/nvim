@@ -27,8 +27,27 @@ return {
       ensure_installed = { 'prettier', 'ansible-lint' }
     })
 
+    local sign_define = vim.fn.sign_define
+    sign_define('DiagnosticSignError', { texthl = 'DiagnosticSignError', text = '' })
+    sign_define('DiagnosticSignWarn', { texthl = 'DiagnosticSignWarn', text = '' })
+    sign_define('DiagnosticSignInfo', { texthl = 'DiagnosticSignInfo', text = '' })
+    sign_define('DiagnosticSignHint', { texthl = 'DiagnosticSignHint', text = '' })
+
+    vim.diagnostic.config({
+      virtual_text = false,
+      update_in_insert = true,
+      severity_sort = true,
+      float = {
+        border = 'rounded',
+        source = 'if_many',
+        header = '',
+        prefix = ''
+      }
+    })
+
     -- `capabilities` should be set in ALL language specific setups
-    local capabilities = require('cmp_nvim_lsp').default_capabilities()
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities = require('cmp_nvim_lsp').default_capabilities(capabilities)
 
     local lspconfig = require('lspconfig')
 
