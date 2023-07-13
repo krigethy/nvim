@@ -70,8 +70,7 @@ return {
     })
 
     lspconfig.eslint.setup({
-      capabilities = capabilities,
-      single_file_support = true
+      capabilities = capabilities
     })
     lspconfig.cssls.setup({
       capabilities = capabilities
