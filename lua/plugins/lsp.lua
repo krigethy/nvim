@@ -21,7 +21,16 @@ return {
     -- Order is important: mason -> mason-lspconfig -> nvim-lspconfig
     require('mason').setup()
     require('mason-lspconfig').setup({
-      ensure_installed = { 'lua_ls', 'eslint', 'cssls', 'html', 'jsonls', 'yamlls', 'ansiblels' }
+      ensure_installed = {
+        'lua_ls',
+        'eslint',
+        'cssls',
+        'html',
+        'jsonls',
+        'yamlls',
+        'ansiblels',
+        'tsserver'
+      }
     })
     require('mason-null-ls').setup({
       ensure_installed = { 'prettier', 'ansible-lint' }
@@ -70,6 +79,9 @@ return {
     })
 
     lspconfig.eslint.setup({
+      capabilities = capabilities
+    })
+    lspconfig.tsserver.setup({
       capabilities = capabilities
     })
     lspconfig.cssls.setup({
