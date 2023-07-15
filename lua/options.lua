@@ -17,8 +17,7 @@ local opt = {
   colorcolumn = '80,120',
   termguicolors = true,
   scrolloff = 5,
-  sidescrolloff = 5,
-  keywordprg = ':help'
+  sidescrolloff = 5
 }
 
 for k, v in pairs(opt) do

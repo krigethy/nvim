@@ -14,38 +14,32 @@ map('n', '<C-j>', '<C-w>j')
 map('n', '<C-k>', '<C-w>k')
 map('n', '<C-l>', '<C-w>l')
 
-map('n', '<Leader>i', vim.diagnostic.open_float)
-map('n', '[d', vim.diagnostic.goto_prev)
-map('n', ']d', vim.diagnostic.goto_next)
-map('n', '<Leader>q', vim.diagnostic.setloclist)
-
 map('n', '<Bslash>m', '<Cmd>Mason<CR>')
 map('n', '<Bslash>l', '<Cmd>Lazy<CR>')
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
+-- Additional diagnostic/lsp mappings at `M.telescope`
 vim.api.nvim_create_autocmd('LspAttach', {
   group = vim.api.nvim_create_augroup('UserLspConfig', {}),
   callback = function(ev)
     local opts = { buffer = ev.buf }
-    -- TODO telescope vs lsp
-    -- map('n', 'gD', vim.lsp.buf.declaration, opts)
-    -- map('n', 'gd', vim.lsp.buf.definition, opts)
-    -- map('n', 'K', vim.lsp.buf.hover, opts)
-    -- map('n', 'gi', vim.lsp.buf.implementation, opts)
-    -- map('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-    -- map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, opts)
-    -- map('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
-    -- map('n', '<Leader>wl', function()
-    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-    -- end, opts)
-    -- vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-    map('n', '<Leader>d', vim.lsp.buf.type_definition, opts)
+    map('n', '<Leader>i', vim.diagnostic.open_float)
+    map('n', '[d', vim.diagnostic.goto_prev)
+    map('n', ']d', vim.diagnostic.goto_next)
+    map('n', 'K', vim.lsp.buf.hover, opts)
     map('n', '<Leader>r', vim.lsp.buf.rename, opts)
     map('n', '<Leader>a', vim.lsp.buf.code_action, opts)
     map('n', '<Leader>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
+    map('n', '<Leader>s', vim.lsp.buf.signature_help, opts)
+    -- TODO Do I need these?
+    -- map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, opts)
+    -- map('n', '<Leader>wr', vim.lsp.buf.remove_workspace_folder, opts)
+    -- map('n', '<Leader>wl', function()
+    --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+    -- end, opts)
   end,
 })
 
@@ -83,17 +77,14 @@ M.telescope = function()
   map('n', '<leader>g', builtin.live_grep)
   map('n', '<leader>h', builtin.help_tags)
   map('n', '<leader>8', builtin.grep_string)
-  -- TODO telescope vs lsp
+  map('n', 'gr', builtin.lsp_references)
+  map('n', 'gd', builtin.lsp_definitions)
+  map('n', '<leader>q', builtin.diagnostics)
+  -- TODO do I need these?
   -- map('n', '<leader>', builtin.oldfiles)
   -- map('n', '<leader>', builtin.registers)
   -- map('n', '<leader>', builtin.spell_suggest)
   -- map('n', '<leader>', builtin.current_buffer_fuzzy_find)
-  --
-  -- map('n', '<leader>', builtin.lsp_references)
-  -- map('n', '<leader>', builtin.diagnostics)
-  -- map('n', '<leader>', builtin.lsp_implementation)
-  -- map('n', '<leader>', builtin.lsp_definitions)
-  -- map('n', '<leader>', builtin.lsp_type_definitions)
 
   local actions = require('telescope.actions')
   return {
