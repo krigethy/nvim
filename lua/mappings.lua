@@ -108,7 +108,7 @@ M.cmp = function()
     ['\n'] = cmp.mapping({
       i = function(_)
         if cmp.visible() then
-          cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Replace })
+          cmp.confirm({ select = true, behavior = cmp.ConfirmBehavior.Insert })
         else
           cmp.complete()
         end
@@ -117,7 +117,7 @@ M.cmp = function()
     ['<CR>'] = cmp.mapping({
       i = function(fallback)
         if cmp.visible() and cmp.get_active_entry() then
-          cmp.confirm({ select = false, behavior = cmp.ConfirmBehavior.Replace })
+          cmp.confirm({ select = false, behavior = cmp.ConfirmBehavior.Insert })
         else
           fallback()
         end
