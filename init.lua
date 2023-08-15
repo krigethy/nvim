@@ -20,7 +20,7 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup(
   'plugins',
   {
-    colorscheme = { 'tokyonight', 'habamax'},
+    colorscheme = { 'rose-pine', 'habamax'},
     change_detection = { notify = false },
     lockfile = vim.fn.stdpath('config') .. '/lua/plugins/lazy-lock.json'
   }
