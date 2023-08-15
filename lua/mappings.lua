@@ -16,6 +16,7 @@ map('n', '<C-l>', '<C-w>l')
 
 map('n', '<Bslash>m', '<Cmd>Mason<CR>')
 map('n', '<Bslash>l', '<Cmd>Lazy<CR>')
+map('n', '<Bslash>g', '<Cmd>LazyGit<CR>')
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -170,27 +171,6 @@ M.gitsigns = function(bufnr)
 
   -- Text object
   map({ 'o', 'x' }, 'ih', '<Cmd>Gitsigns select_hunk<CR>', opts)
-end
-
-M.toggleterm = function()
-  local Terminal = require('toggleterm.terminal').Terminal
-
-  LAZYGIT = Terminal:new({
-    cmd = 'lazygit',
-    hidden = true,
-    direction = 'float'
-  })
-  HTOP = Terminal:new({
-    cmd = 'htop',
-    hidden = true,
-    direction = 'float'
-  })
-
-  map('n', '<Bslash>g', '<Cmd>lua LAZYGIT:toggle()<CR>')
-  map('n', '<Bslash>h', '<Cmd>lua HTOP:toggle()<CR>')
-
-  -- Return toggle mapping
-  return [[<C-Bslash>]]
 end
 
 return M
