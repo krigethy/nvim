@@ -42,7 +42,3 @@
   - curl
 - Gitsigns
   - git
-
-## Known issues
-
-- Mason build `:MasonUpdate` throws error on first run of the config
