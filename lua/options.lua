@@ -17,7 +17,8 @@ local opt = {
   colorcolumn = '80,120',
   termguicolors = true,
   scrolloff = 5,
-  sidescrolloff = 5
+  sidescrolloff = 5,
+  showmode = false
 }
 
 for k, v in pairs(opt) do
