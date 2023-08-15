@@ -30,7 +30,10 @@ return {
         'yaml'
       },
       highlight = { enable = true },
-      indent = { enable = true }
+      ignore_install = {},
+      indent = { enable = true },
+      modules = {},
+      sync_install = false
     })
     -- Folding
     vim.opt.foldmethod = 'expr'
