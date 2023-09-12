@@ -34,6 +34,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
     map('n', '<Leader>f', function()
       vim.lsp.buf.format { async = true }
     end, opts)
+    -- TODO I don't know about this, maybe if it was an auto popup in insert
     map('n', '<Leader>s', vim.lsp.buf.signature_help, opts)
     -- TODO Do I need these?
     -- map('n', '<Leader>wa', vim.lsp.buf.add_workspace_folder, opts)
